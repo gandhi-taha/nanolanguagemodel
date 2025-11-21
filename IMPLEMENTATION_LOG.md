@@ -51,7 +51,7 @@ config = {
 - [ ] Add 8-bit quantization option for memory efficiency
 
 **Challenges**: 
-- Initial attempt with CTranslate2 didn't work well on Windows/Linux
+- Initial attempt with CTranslate2 work well on Windows/Linux
 - Switched to pure transformers library - more compatible
 - 8-bit loading helps a ton with memory
 ![CTranlate2](/media/image.png)
