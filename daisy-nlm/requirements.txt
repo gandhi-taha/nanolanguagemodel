@@ -1,0 +1,6 @@
+huggingface_hub
+ctranslate2>=4.4.0
+tokenizers
+requests
+numpy
+jinja2
