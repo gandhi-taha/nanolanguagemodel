@@ -31,7 +31,7 @@ def get_model_info(model_type="instruct"):
         m["path"] = m["name"]
     else:
         # Fallback for legacy configs or if repo is missing
-        m["path"] = f"jncraton/{m['name']}-{m['backend']}-{m['quantization']}"
+        m["path"] = f"t4gandhi/{m['name']}-{m['backend']}-{m['quantization']}"
 
     return m
 

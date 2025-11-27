@@ -24,7 +24,7 @@ class ModelFilterException(Exception):
 models = [
     {
         "name": "granite-3.0-3b-a800m-instruct",
-        "repo": "t4gandhi/granite-3.0-3b-a800m-instruct-ct2-int8",
+        "repo": "t4gandhi/granite-3.0-3b-a800m-instruct",
         "tuning": "instruct",
         "datasets": ["granite", "enterprise", "reasoning"],
         "params": 3e9,
@@ -37,7 +37,7 @@ models = [
     },
     {
         "name": "Qwen2.5-1.5B-Instruct",
-        "repo": "t4gandhi/Qwen2.5-1.5B-Instruct-ct2-int8",
+        "repo": "t4gandhi/qwen2.5-1.5b-instruct",
         "tuning": "instruct",
         "languages": [
             "zh",
@@ -54,7 +54,6 @@ models = [
             "th",
             "ar",
         ],
-        "revision": "5de22ab",
         "datasets": [],
         "params": 1.5e9,
         "quantization": "int8",
@@ -71,7 +70,7 @@ models = [
     },
     {
         "name": "Mistral-7B-Instruct-v0.2",
-        "repo": "t4gandhi/Mistral-7B-Instruct-v0.2-ct2-int8",
+        "repo": "t4gandhi/Mistral-7B-Instruct-v0.2",
         "tuning": "instruct",
         "datasets": ["mistral"],
         "params": 7e9,
@@ -83,9 +82,8 @@ models = [
     },
     {
         "name": "LaMini-Flan-T5-248M",
-        "repo": "t4gandhi/LaMini-Flan-T5-248M-ct2-int8",
+        "repo": "t4gandhi/LaMini-Flan-T5-248M",
         "tuning": "instruct",
-        "revision": "96cfe99",
         "datasets": ["c4", "flan", "lamini"],
         "params": 248e6,
         "quantization": "int8",
@@ -95,9 +93,8 @@ models = [
     },
     {
         "name": "all-MiniLM-L6-v2",
-        "repo": "t4gandhi/all-MiniLM-L6-v2-ct2-int8",
+        "repo": "t4gandhi/all-MiniLM-L6-v2",
         "tuning": "embedding",
-        "revision": "28efeb4",
         "params": 22e6,
         "quantization": "int8",
         "backend": "ct2",
@@ -162,7 +159,7 @@ class Config(dict):
         for key in other:
             self[key] = other[key]
 
-    def use_hf_model(self, hf_path, revision, model_type="instruct"):
+    def use_hf_model(self, hf_path, model_type="instruct"):
         """
         Load a model directly from Hugging Face.
         """
@@ -174,7 +171,7 @@ class Config(dict):
         from jinja2 import Environment, BaseLoader
 
         tok_config = hf_hub_download(
-            hf_path, "tokenizer_config.json", revision=revision
+            hf_path, "tokenizer_config.json"
         )
 
         with open(tok_config) as f:
